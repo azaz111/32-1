@@ -25,6 +25,7 @@ cd
 git clone https://github.com/azaz111/chiatest1.git
 cd chiatest1
 unzip config.zip -d /root
+sleep 5
 unzip AutoRclone.zip -d /root/AutoRclone
 sleep 7
 mkdir /aws32 
