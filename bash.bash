@@ -15,22 +15,19 @@ sudo apt update
 sudo apt install curl
 sudo apt-get install screen git 
 curl https://rclone.org/install.sh | sudo bash 
-sleep 2
-cd AutoRclone
 sudo pip3 install -r requirements.txt
 sleep 2
 # Третий этап -----------------------------------------------------
-cd
-git clone https://github.com/azaz111/chiatest1.git
-cd chiatest1
-unzip config.zip -d /root
-sleep 5
-chmod 777 trans.sh
+cd 
+mkdir AutoRclone
+git clone https://github.com/azaz111/auto-gmail.git
+cd auto-gmail
 unzip AutoRclone.zip -d /root/AutoRclone
 sleep 7
+cd
+chmod 777 trans.sh
 mkdir /aws32 
-rclone mount --daemon aws32: /aws32 
-ctrl_z
+screen -dmS mount rclone mount --daemon aws32: /aws32 
 # Четвкртый --------------------------------------------------
 cd
 # Монтируем диск 1
@@ -57,8 +54,18 @@ mkfs.xfs -f /dev/nvme4n1
 partprobe /dev/nvme4n1
 mkdir /disk4
 mount /dev/nvme3n1 /disk4
+# Создаем дериктории на дисках
 cd /disk1
-mkdir vid1 vid2 video
+mkdir vid1 
+cd /disk2
+mkdir vid2
+cd /disk3
+mkdir video1
+cd /disk3
+mkdir video
+cd /disk4
+mkdir video
+cd /root
 # Качаем плоттер и устанавливаем 
 cd
 git clone https://github.com/madMAx43v3r/chia-plotter.git 
@@ -67,20 +74,11 @@ cd chia-plotter
 git submodule update --init
 sleep 3
 ./make_devel.sh
-cd build
 sleep 5
-# Создаем дериктории на дисках
-cd /disk1
-mkdir vid1 
-cd /disk2
-mkdir vid2
-cd /disk3
-mkdir video1
-mkdir video
-cd /disk4
-mkdir video
-cd /root
+cd
 # ЗАпуск Плотера ------------------------------
 screen -dmS videorender1 ./chia-plotter/build/chia_plot -n -1 -r 16 -u 256 -t /disk1/vid1/ -2 /disk2/vid2/ -d /disk3/video/ -f b8e1d57e3e2dbb40ac8f2b257b762d05fcfc5b79c32a22255424644b7d183daa7c454624783f2d959c02eb1d2a4ba3a3 -p 91ea997633345082b15f83b957449180037030b6b7485f07ed4ee7558d08d3efbccf2c3d68ba724f5b3a8281a0055e27
 screen -dmS videorender2 ./chia-plotter/build/chia_plot -n -1 -r 16 -u 256 -t /disk1/vid1/ -2 /disk2/vid2/ -d /disk3/video1/ -f b8e1d57e3e2dbb40ac8f2b257b762d05fcfc5b79c32a22255424644b7d183daa7c454624783f2d959c02eb1d2a4ba3a3 -p 91ea997633345082b15f83b957449180037030b6b7485f07ed4ee7558d08d3efbccf2c3d68ba724f5b3a8281a0055e27
+screen -dmS otchet python3 awsstat.py
 screen -dmS trans ./trans.sh
+screen -r trans
