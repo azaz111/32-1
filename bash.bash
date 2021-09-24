@@ -28,6 +28,12 @@ cd
 chmod 777 trans.sh
 mkdir /aws32 
 screen -dmS mount rclone mount --daemon aws32: /aws32 
+mkdir /baws32 
+screen -dmS mount rclone mount --daemon baws32: /baws32 
+mkdir /disk4/osnova
+mkdir /disk4/osnova1
+mkdir /disk4/beckup
+mkdir /disk4/beckup1
 # Четвкртый --------------------------------------------------
 cd
 # Монтируем диск 1
