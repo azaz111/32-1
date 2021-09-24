@@ -62,7 +62,7 @@ mount /dev/nvme3n1 /disk4
 cd /disk4
 mkdir osnova
 cd /disk4
-mkdir /osnova1
+mkdir osnova1
 cd /disk4 
 mkdir beckup
 cd /disk4 
