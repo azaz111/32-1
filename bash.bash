@@ -18,12 +18,6 @@ curl https://rclone.org/install.sh | sudo bash
 sudo pip3 install -r requirements.txt
 sleep 2
 # Третий этап -----------------------------------------------------
-cd 
-mkdir AutoRclone
-git clone https://github.com/azaz111/1.git
-cd 1
-unzip AutoRclone.zip -d /root/AutoRclone
-sleep 7
 cd
 chmod 777 trans.sh
 chmod 777 Copi1.sh
