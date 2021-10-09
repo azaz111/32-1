@@ -1,7 +1,7 @@
 # !/bin/bash
 echo -n 'VVEDI NOMER : '
 read int 
-echo "$int" > aknomber.txt 
+echo "$int" >> aknomber.txt 
 sleep 2
 echo "РџРѕРґРѕР¶РґР°Р»Рё"
 sudo apt-get update 
