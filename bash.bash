@@ -1,9 +1,4 @@
 #!/bin/bash
-echo -n 'VVEDI NOMER : '
-read int 
-echo "$int" > aknomber.txt 
-sleep 2
-echo "Подождали"
 sudo apt-get update 
 # cozdadum skript avtootveta
 echo -e '#!/usr/bin/expect\nspawn sudo apt-get upgrade -y \nexpect "Package configuration"'> /root/autootvet.sh
